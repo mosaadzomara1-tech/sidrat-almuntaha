@@ -1,0 +1,92 @@
+{
+  "name": "سدرة المنتهى",
+  "short_name": "سدرة المنتهى",
+  "description": "تطبيق إسلامي مجاني بلا إعلانات: المصحف الشريف بتلاوة أشهر القراء مع التفسير · صحيح البخاري ومسلم بنصّهما · 158 ذكراً بتخريجها · مواقيت الصلاة والقبلة · أبواب ومسائل يجيب عنها علماء الأزهر الشريف ومشايخ مصر وأشهر علماء العالم الإسلامي. يعمل بدون إنترنت.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0c1a16",
+  "theme_color": "#0d1f1a",
+  "categories": [
+    "education",
+    "books",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "icons/apple-touch-icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "id": "/",
+  "shortcuts": [
+    {
+      "name": "المصحف الشريف",
+      "short_name": "المصحف",
+      "url": "./index.html?go=quran",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "الأذكار",
+      "short_name": "الأذكار",
+      "url": "./index.html?go=athkar",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "كتب السنة",
+      "short_name": "السنة",
+      "url": "./index.html?go=books",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "الابتهالات",
+      "short_name": "ابتهالات",
+      "url": "./index.html?go=ibtihalat",
+      "icons": [
+        {
+          "src": "icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}

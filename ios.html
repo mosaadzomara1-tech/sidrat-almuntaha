@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1f1a">
+<title>لماذا لا يُثبَّت التطبيق؟</title>
+<link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="سدرة المنتهى">
+<style>
+:root{--bg:#0a1712;--bg2:#12241e;--line:#1f4034;--ink:#eaf3ef;--dim:#9fb8ae;--gold:#d4af62;--ok:#2f9e73;--bad:#d8695e}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.85 "Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif;
+  padding:calc(24px + env(safe-area-inset-top)) 16px calc(30px + env(safe-area-inset-bottom))}
+main{max-width:560px;margin:0 auto}
+h1{font-size:22px;margin:0 0 4px;font-family:"Noto Naskh Arabic",serif}
+.sub{color:var(--dim);font-size:13px;margin:0 0 20px}
+#verdict{border-radius:16px;padding:15px 16px;margin:0 0 18px;border:1px solid var(--line);background:var(--bg2)}
+#verdict b{display:block;font-size:17px;margin-bottom:6px}
+#verdict.bad{border-color:var(--bad)}#verdict.bad b{color:var(--bad)}
+#verdict.ok{border-color:var(--ok)}#verdict.ok b{color:var(--ok)}
+ol{padding-inline-start:20px;margin:10px 0 0}li{margin:5px 0}
+.cta{display:block;width:100%;border:0;border-radius:14px;padding:15px;margin:14px 0 0;
+  background:var(--ok);color:#04150f;font:700 16px/1 inherit;text-align:center;text-decoration:none;cursor:pointer}
+.cta.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);font-weight:400}
+table{width:100%;border-collapse:collapse;margin-top:22px;font-size:13px}
+td{border-bottom:1px solid var(--line);padding:8px 4px;vertical-align:top}
+td:first-child{color:var(--dim);width:44%}
+td.v{font-family:ui-monospace,Consolas,monospace;direction:ltr;text-align:start;word-break:break-all}
+.y{color:var(--ok)}.n{color:var(--bad)}
+h2{font-size:14px;color:var(--gold);margin:26px 0 0;font-weight:600}
+#nobtn{background:#3a2a12;border:1px solid #6b4f1f;border-radius:14px;padding:13px 14px;margin:0 0 16px}
+#nobtn b{color:var(--gold);display:block;font-size:14.5px;margin-bottom:5px}
+#nobtn small{color:#e2d3b4;font-size:12.5px;line-height:1.9;display:block}
+</style>
+</head>
+<body>
+<main>
+  <h1>لماذا لا يُثبَّت التطبيق؟</h1>
+  <p class="sub">هذه الصفحة تفحص جهازك الآن وتقول السبب بالضبط — لا تخميناً.</p>
+
+  <div id="nobtn" hidden>
+    <b>على آيفون لا يوجد زرّ تحميل — ولن تجده</b>
+    <small><b>آبل لا تسمح لأيّ موقع بزرّ تثبيت.</b> و«إضافة إلى الشاشة
+    الرئيسية» <b>هي التثبيت نفسه</b>: أيقونةٌ حقيقية على شاشتك، تفتح بلا شريط متصفّح،
+    وتعمل بلا إنترنت، وتصلها التحديثات وحدها.</small>
+  </div>
+
+  <div id="verdict"><b>جارٍ الفحص…</b></div>
+  <div id="acts"></div>
+
+  <h2>تفاصيل الفحص</h2>
+  <table id="t"></table>
+  <button class="cta ghost" id="copy">انسخ التقرير لإرساله</button>
+</main>
+
+<script>
+(function () {
+  var ua = navigator.userAgent;
+  var rows = [], report = [];
+  function row(k, v, good) {
+    rows.push('<tr><td>' + k + '</td><td class="v ' +
+      (good === true ? 'y' : good === false ? 'n' : '') + '">' + v + '</td></tr>');
+    report.push(k + ': ' + String(v).replace(/<[^>]+>/g, ''));
+  }
+
+  var iOS = /iPhone|iPad|iPod/.test(ua) ||
+            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var m = ua.match(/OS (\d+)[._](\d+)/);
+  var iosVer = m ? m[1] + '.' + m[2] : '—';
+  var otherBrowser = /CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser/.exec(ua);
+  var inAppUA = /FBAN|FBAV|FB_IAB|Instagram|Line\/|Twitter|LinkedInApp|Snapchat|MicroMessenger|WhatsApp|GSA\//i.exec(ua);
+  /* الفارق الحاسم: navigator.standalone مُعرَّف في سفاري الحقيقي فقط.
+     واتساب ينتحل هوية سفاري في الـUA بالحرف، فلا يُكشف إلا بهذا. */
+  var saDefined = typeof navigator.standalone !== 'undefined';
+  var inApp = iOS && !otherBrowser && (inAppUA || !saDefined);
+  var installed = navigator.standalone === true ||
+                  window.matchMedia('(display-mode: standalone)').matches;
+
+  var where = installed ? 'مثبَّت على الشاشة ✓'
+            : inApp ? ('متصفّح داخل تطبيق' + (inAppUA ? ' (' + inAppUA[0] + ')' : ''))
+            : otherBrowser ? otherBrowser[0]
+            : iOS ? 'Safari' : 'غير آيفون';
+
+  row('الجهاز', iOS ? 'آيفون / آيباد' : 'ليس آيفون', iOS);
+  row('نظام iOS', iosVer, m ? parseInt(m[1], 10) >= 13 : null);
+  row('أين تتصفّح الآن', where, installed || (iOS && !inApp));
+  row('navigator.standalone', saDefined ? String(navigator.standalone) : 'غير مُعرَّف', saDefined);
+  row('HTTPS', location.protocol === 'https:' ? 'نعم' : location.protocol,
+      location.protocol === 'https:');
+  row('دعم عامل الخدمة', 'serviceWorker' in navigator ? 'نعم' : 'لا',
+      'serviceWorker' in navigator);
+  row('المتصفّح', ua);
+
+  var v = document.getElementById('verdict'), a = document.getElementById('acts');
+  // أول ما يبحث عنه المستخدم زرُّ تحميل — فنُصرّح بغيابه قبل أي شرح
+  if (iOS && !installed) document.getElementById('nobtn').hidden = false;
+  function say(cls, title, body) { v.className = cls; v.innerHTML = '<b>' + title + '</b>' + body; }
+
+  function safariBtn(label) {
+    var b = document.createElement('button');
+    b.className = 'cta'; b.textContent = label;
+    b.onclick = function () {
+      var t = Date.now();
+      try {
+        location.href = location.href.replace(/ios\.html.*$/, 'index.html')
+                                     .replace(/^https:\/\//, 'x-safari-https://');
+      } catch (e) {}
+      setTimeout(function () {
+        if (Date.now() - t < 1400 && !document.hidden) {
+          document.getElementById('copy').click();
+          alert('نُسخ التقرير والرابط. افتح Safari والصق الرابط.');
+        }
+      }, 1200);
+    };
+    a.appendChild(b);
+  }
+  function appBtn() {
+    var l = document.createElement('a');
+    l.className = 'cta ghost'; l.textContent = 'افتح التطبيق';
+    l.href = 'index.html'; a.appendChild(l);
+  }
+
+  if (!iOS) {
+    say('ok', 'جهازك ليس آيفون', '<p>هذه الصفحة لتشخيص الآيفون. على أندرويد ' +
+      'وويندوز يظهر زرّ تثبيتٍ حقيقيّ داخل التطبيق.</p>');
+    appBtn();
+  } else if (installed) {
+    say('ok', 'التطبيق مثبَّت ويعمل ✓', '<p>أنت تفتحه الآن كتطبيقٍ مستقلّ بلا شريط ' +
+      'متصفّح. لا يلزمك شيء.</p>');
+    appBtn();
+  } else if (inApp) {
+    say('bad', 'وجدتُ السبب: أنت داخل متصفّحٍ مصغّر',
+      '<p>فتحتَ الرابط من داخل تطبيقٍ آخر (واتساب أو فيسبوك أو ما شابه)، ' +
+      'وهذا المتصفّح <b>لا يملك خيار «إضافة إلى الشاشة الرئيسية»</b> أصلاً — ' +
+      'فمهما ضغطتَ زرّ المشاركة لن تجده. لا عيب في التطبيق.</p>' +
+      '<ol><li>اضغط الزرّ الأخضر بالأسفل، أو <b>⋯</b> أعلى الشاشة ← <b>«فتح في Safari»</b>.</li>' +
+      '<li>في سفاري: زرّ المشاركة (أسفل الشاشة) ← <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>' +
+      '<li>ثم <b>«إضافة»</b> أعلى اليسار.</li></ol>');
+    safariBtn('افتح في Safari');
+  } else if (otherBrowser) {
+    say('bad', 'أنت في ' + otherBrowser[0] + ' لا في سفاري',
+      '<p>في iOS 16.4 فأحدث يستطيع هذا المتصفّح الإضافةَ من قائمته: ' +
+      'المشاركة ← «إضافة إلى الشاشة الرئيسية». وإن لم تجد الخيار فسفاري ' +
+      'هو الطريق المضمون.</p>');
+    safariBtn('افتح في Safari');
+  } else if (m && parseInt(m[1], 10) < 13) {
+    say('bad', 'نظام آيفون قديم (' + iosVer + ')',
+      '<p>التثبيت يعمل من iOS 13 فأحدث. حدّث النظام، أو استعمل التطبيق من ' +
+      'المتصفّح مباشرةً — كلّ المحتوى يعمل.</p>');
+    appBtn();
+  } else {
+    say('ok', 'جهازك جاهز — التثبيت خطوتان',
+      '<p>أنت في سفاري ولا مانع من التثبيت. آيفون لا يعرض زرّ تثبيت، فالخطوات يدوية:</p>' +
+      '<ol><li>اضغط <b>«افتح التطبيق»</b> بالأسفل — مهمّ، فآيفون يثبّت ' +
+      '<b>الصفحة التي أنت فيها</b>، ولو ثبّتَّ هذه الصفحة فتحت لك صفحةَ الفحص.</li>' +
+      '<li>زرّ المشاركة في شريط سفاري (أسفل الشاشة).</li>' +
+      '<li>انزل واختر <b>«إضافة إلى الشاشة الرئيسية»</b> ثم <b>«إضافة»</b>.</li></ol>' +
+      '<p><b>ثبّتَّه قبلُ وما زال يفتح بشريط المتصفّح؟</b> احذف الأيقونة القديمة ' +
+      'وأعِد الإضافة — آيفون يقرأ إعدادات التطبيق مرةً واحدة لحظةَ الإضافة ' +
+      'ولا يُحدّثها بعدها أبداً.</p>');
+    appBtn();
+  }
+
+  var t = document.getElementById('t');
+  t.innerHTML = rows.join('');
+
+  function probe(label, url) {
+    fetch(url, { cache: 'no-store' }).then(function (r) {
+      row(label, r.ok ? 'يعمل ✓' : ('فشل ✗ (' + r.status + ')'), r.ok);
+      t.innerHTML = rows.join('');
+    }).catch(function () {
+      row(label, 'فشل ✗', false); t.innerHTML = rows.join('');
+    });
+  }
+  probe('ملف الإعدادات (manifest)', 'manifest.webmanifest');
+  probe('أيقونة آبل ١٨٠', 'icons/apple-touch-icon-180.png');
+  probe('فهرس المحتوى', 'assets/index.json');
+
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    navigator.serviceWorker.getRegistration().then(function (r) {
+      row('عامل الخدمة مسجَّل', r ? 'نعم ✓' : 'لا بعدُ', !!r);
+      t.innerHTML = rows.join('');
+    });
+  }
+
+  document.getElementById('copy').onclick = function () {
+    var txt = 'تشخيص سدرة المنتهى — ' + new Date().toLocaleString('ar-EG') + '\n' +
+              'الحكم: ' + v.querySelector('b').textContent + '\n\n' + report.join('\n');
+    var done = function () { document.getElementById('copy').textContent = 'نُسخ التقرير ✓'; };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, done);
+    else { var x = document.createElement('textarea'); x.value = txt; document.body.appendChild(x);
+           x.select(); try { document.execCommand('copy'); } catch (e) {} x.remove(); done(); }
+  };
+})();
+</script>
+</body>
+</html>

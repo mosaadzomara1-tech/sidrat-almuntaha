@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mosaadzomara1-tech.github.io/sidrat-almuntaha/sitemap.xml

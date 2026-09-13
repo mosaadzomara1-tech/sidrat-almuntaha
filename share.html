@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d1f1a">
+<title>حمّل سدرة المنتهى — تطبيق إسلامي مجاني: قرآن وسنة وأذكار ومواقيت الصلاة</title>
+<meta name="keywords" content="تطبيق إسلامي, تطبيق ديني, القرآن الكريم, المصحف الشريف, تفسير القرآن, صحيح البخاري, صحيح مسلم, الحديث النبوي, الأذكار, أذكار الصباح والمساء, مواقيت الصلاة, اتجاه القبلة, أدعية, فتاوى, علماء الأزهر, دروس دينية, محاضرات إسلامية, ابتهالات, تطبيق قرآن بدون نت, تطبيق إسلامي مجاني">
+<meta name="author" content="سدرة المنتهى">
+<meta name="robots" content="index, follow">
+<meta name="description" content="تطبيق إسلامي مجاني بلا إعلانات: المصحف الشريف كاملاً بتلاوة أشهر القراء مع التفسير، وصحيح البخاري ومسلم بنصهما، و158 ذكراً بتخريجها، ومواقيت الصلاة واتجاه القبلة، و52 باباً و354 مسألة يجيب عنها علماء الأمة من الأزهر الشريف والحرمين الشريفين وسائر بلاد المسلمين بالفيديو والصوت. يعمل بدون إنترنت.">
+<meta property="og:title" content="سدرة المنتهى">
+<meta property="og:description" content="المصحف الشريف · صحيح البخاري ومسلم · مسائل يجيب عنها علماء الأزهر — مجاناً وبلا إعلانات.">
+<meta property="og:image" content="icons/icon-512.png">
+<meta property="og:type" content="website">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icons/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-touch-icon-152.png">
+<!-- بلا هذين الوسمين يفتح آيفون الاختصارَ داخل سفاري بشريطه، فيبدو كأنه لم يُثبَّت -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<!-- «black» شريطٌ أسود مستقلّ: مقروء في الوضعين الليلي والنهاري.
+     و«black-translucent» يكتب بالأبيض فوق ورق المصحف الفاتح فيختفي. -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="سدرة المنتهى">
+<style>
+:root{--bg:#0a1712;--bg2:#12241e;--card:#16302759;--line:#1f4034;--ink:#eaf3ef;--dim:#9fb8ae;--gold:#d4af62;--green:#2f9e73}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.8 "Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif;
+  padding:calc(28px + env(safe-area-inset-top)) 18px calc(34px + env(safe-area-inset-bottom))}
+main{max-width:560px;margin:0 auto;text-align:center}
+.icon{width:108px;height:108px;border-radius:26px;display:block;margin:0 auto 16px;box-shadow:0 14px 36px #00000070}
+h1{font-size:27px;margin:0;font-family:"Noto Naskh Arabic","Traditional Arabic",serif}
+h1+p{color:var(--gold);font-size:13.5px;margin:7px 0 0;letter-spacing:.3px}
+.pitch{color:var(--dim);font-size:14px;margin-top:14px;line-height:1.95}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:22px 0 6px;text-align:start}
+.fact{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:11px 12px}
+.fact b{display:block;color:var(--gold);font-size:15px}
+.fact small{color:var(--dim);font-size:11.5px}
+.cta{display:block;width:100%;background:linear-gradient(180deg,#34ac7e,#238a63);color:#fff;border:none;
+  border-radius:15px;padding:16px;font:inherit;font-size:17px;font-weight:700;cursor:pointer;margin-top:20px;
+  box-shadow:0 10px 26px #0c3b2a55;text-decoration:none}
+.cta.ghost{background:none;border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:15px;box-shadow:none}
+.steps{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:15px 16px;margin-top:16px;text-align:start}
+.steps h3{margin:0 0 8px;font-size:14px;color:var(--gold)}
+.steps ol{margin:0;padding-inline-start:20px;color:var(--dim);font-size:13.5px;line-height:2}
+.qr{margin:22px auto 0;background:#fff;padding:12px;border-radius:16px;width:max-content;min-height:60px}
+.qr img,.qr canvas{display:block}
+.link{margin-top:12px;color:var(--dim);font-size:12px;word-break:break-all}
+.note{color:var(--dim);font-size:11.5px;margin-top:22px;line-height:1.9}
+.ok{color:var(--green)}
+  .steps .why{color:var(--dim);font-size:12.5px;line-height:1.9;margin:0 0 8px}
+.nobtn{background:#3a2a12;border:1px solid #6b4f1f;border-radius:14px;padding:13px 14px;
+  margin-top:16px;text-align:start}
+.nobtn b{color:var(--gold);display:block;font-size:14.5px;margin-bottom:5px}
+.nobtn small{color:#e2d3b4;font-size:12.5px;line-height:1.9;display:block}
+.howto{width:100%;height:auto;margin:12px 0 2px;display:block}
+</style>
+<link rel="canonical" href="https://mosaadzomara1-tech.github.io/sidrat-almuntaha/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="سدرة المنتهى">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:url" content="https://mosaadzomara1-tech.github.io/sidrat-almuntaha/">
+<meta property="og:title" content="سدرة المنتهى — تطبيق إسلامي شامل ومجاني">
+<meta property="og:description" content="تطبيق إسلامي مجاني بلا إعلانات: المصحف الشريف كاملاً بتلاوة أشهر القراء مع التفسير، وصحيح البخاري ومسلم بنصهما، و158 ذكراً بتخريجها، ومواقيت الصلاة واتجاه القبلة، و52 باباً و354 مسألة يجيب عنها علماء ">
+<meta property="og:image" content="https://mosaadzomara1-tech.github.io/sidrat-almuntaha/icons/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="سدرة المنتهى — تطبيق إسلامي شامل ومجاني">
+<meta name="twitter:description" content="تطبيق إسلامي مجاني بلا إعلانات: المصحف الشريف كاملاً بتلاوة أشهر القراء مع التفسير، وصحيح البخاري ومسلم بنصهما، و158 ذكراً بتخريجها، ومواقيت الصلاة واتجاه القبلة، و52 باباً و354 مسألة يجيب عنها علماء ">
+<meta name="twitter:image" content="https://mosaadzomara1-tech.github.io/sidrat-almuntaha/icons/icon-512.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "سدرة المنتهى",
+  "alternateName": "تطبيق سدرة المنتهى الإسلامي",
+  "url": "https://mosaadzomara1-tech.github.io/sidrat-almuntaha/",
+  "description": "تطبيق إسلامي مجاني بلا إعلانات: المصحف الشريف كاملاً بتلاوة أشهر القراء مع التفسير، وصحيح البخاري ومسلم بنصهما، و158 ذكراً بتخريجها، ومواقيت الصلاة واتجاه القبلة، و52 باباً و354 مسألة يجيب عنها علماء الأمة من الأزهر الشريف والحرمين الشريفين وسائر بلاد المسلمين بالفيديو والصوت. يعمل بدون إنترنت.",
+  "applicationCategory": "LifestyleApplication",
+  "applicationSubCategory": "تطبيق إسلامي",
+  "operatingSystem": "Android, iOS, Windows, Web",
+  "inLanguage": "ar",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "SAR" },
+  "featureList": [
+    "المصحف الشريف كاملاً بالرسم العثماني مع التفسير",
+    "تلاوات لأشهر القراء تعمل بدون إنترنت",
+    "صحيح البخاري وصحيح مسلم بنصهما الكامل",
+    "الأذكار بتخريجها مع عدّاد يومي",
+    "مواقيت الصلاة واتجاه القبلة بحساب فلكي على الجهاز",
+    "أبواب ومسائل يجيب عنها علماء الأمة من كل بلد",
+    "أركان الإسلام وأشراط الساعة بالدليل",
+    "ابتهالات لكبار المبتهلين"
+  ]
+}
+</script>
+</head>
+<body>
+<main>
+  <img class="icon" src="icons/icon-512.png" alt="سدرة المنتهى">
+  <h1>سِدْرَةُ المُنْتَهَى</h1>
+  <p>مكتبة إسلامية كاملة في تطبيق واحد — مجاناً وبلا إعلانات</p>
+
+  <p class="pitch">المصحف الشريف بتلاوة أئمة الحرمين · صحيح البخاري ومسلم كاملين ·
+     أبواب ومسائل يجيب عنها <b>علماء الأمة من كل بلد</b> بالمرئي والمسموع.</p>
+
+  <div class="facts">
+    <div class="fact"><b>١١٤</b><small>سورة بالرسم العثماني</small></div>
+    <div class="fact"><b>١٤٨١٨</b><small>حديثاً بنصّه الكامل</small></div>
+    <div class="fact"><b>٣٥٤</b><small>مسألة مجاب عنها</small></div>
+    <div class="fact"><b>١٥٨</b><small>ذكراً بتخريجه</small></div>
+    <div class="fact"><b>٠</b><small>إعلانات · اشتراكات</small></div>
+  </div>
+
+  <button id="install" class="cta" hidden>ثبّت التطبيق على جهازك</button>
+  <a class="cta" id="open" href="index.html">افتح التطبيق الآن</a>
+
+  <div class="nobtn" id="nobtn" hidden>
+    <b>على آيفون لا يوجد زرّ تحميل — ولن تجده</b>
+    <small><b>آبل لا تسمح لأيّ موقع بزرّ تثبيت.</b> و«إضافة إلى الشاشة
+    الرئيسية» <b>هي التثبيت نفسه</b> لا اختصاراً ناقصاً: تصير لك أيقونةٌ حقيقية على شاشتك،
+    يفتح بلا شريط متصفّح، ويعمل بلا إنترنت، وتصلك تحديثاته وحدها.</small>
+    <svg class="howto" viewBox="0 0 340 132" role="img"
+         aria-label="ثلاث خطوات: زر المشاركة، ثم إضافة إلى الشاشة الرئيسية، ثم الأيقونة على شاشتك">
+      <defs><style>
+        .fr{fill:#0d1f1a;stroke:#2c5546;stroke-width:1.4;rx:9}
+        .ln{fill:#24463a}.tx{fill:#9fb8ae;font:7px "Segoe UI",Tahoma,sans-serif}
+        .cap{fill:#d4af62;font:bold 8.5px "Segoe UI",Tahoma,sans-serif}
+        .hl{fill:#2f9e73}.ic{fill:#eaf3ef}
+      </style></defs>
+    
+      <!-- ١ زرّ المشاركة في شريط سفاري -->
+      <rect class="fr" x="6" y="8" width="98" height="86" rx="9"/>
+      <rect class="ln" x="14" y="16" width="82" height="52" rx="4"/>
+      <rect x="14" y="74" width="82" height="14" rx="4" fill="#16302a"/>
+      <circle class="hl" cx="55" cy="81" r="8.5"/>
+      <path class="ic" d="M55 76.4l2.6 2.6-1 1-.9-.9v4.5h-1.4v-4.5l-.9.9-1-1 2.6-2.6z"/>
+      <path class="ic" d="M51.4 80.2h1.2v4.1h4.8v-4.1h1.2v5.3h-7.2v-5.3z"/>
+      <text class="cap" x="55" y="106" text-anchor="middle">١ زرّ المشاركة</text>
+      <text class="tx" x="55" y="117" text-anchor="middle">أسفل شاشة سفاري</text>
+    
+      <!-- ٢ اختيار «إضافة إلى الشاشة الرئيسية» -->
+      <rect class="fr" x="121" y="8" width="98" height="86" rx="9"/>
+      <rect class="ln" x="129" y="16" width="82" height="9" rx="3"/>
+      <rect class="ln" x="129" y="29" width="82" height="9" rx="3"/>
+      <rect x="129" y="42" width="82" height="15" rx="4" fill="#1d5c46" stroke="#2f9e73" stroke-width="1.2"/>
+      <rect class="ic" x="134" y="47" width="5" height="5" rx="1"/>
+      <text x="205" y="52.6" class="tx" fill="#d8ecdf" text-anchor="end">إضافة إلى الشاشة</text>
+      <rect class="ln" x="129" y="61" width="82" height="9" rx="3"/>
+      <rect class="ln" x="129" y="74" width="82" height="9" rx="3"/>
+      <text class="cap" x="170" y="106" text-anchor="middle">٢ اختر الإضافة</text>
+      <text class="tx" x="170" y="117" text-anchor="middle">انزل بالقائمة حتى تجدها</text>
+    
+      <!-- ٣ الأيقونة على الشاشة -->
+      <rect class="fr" x="236" y="8" width="98" height="86" rx="9"/>
+      <rect class="ln" x="246" y="18" width="18" height="18" rx="5"/>
+      <rect class="ln" x="271" y="18" width="18" height="18" rx="5"/>
+      <rect class="ln" x="296" y="18" width="18" height="18" rx="5"/>
+      <rect x="246" y="44" width="18" height="18" rx="5" fill="#2f9e73" stroke="#d4af62" stroke-width="1.3"/>
+      <text x="255" y="57" text-anchor="middle" font-size="10" fill="#04150f">🕌</text>
+      <text class="tx" x="255" y="69" text-anchor="middle" font-size="5.4">سدرة المنتهى</text>
+      <rect class="ln" x="271" y="44" width="18" height="18" rx="5"/>
+      <rect class="ln" x="296" y="44" width="18" height="18" rx="5"/>
+      <text class="cap" x="285" y="106" text-anchor="middle">٣ تلاقيه على شاشتك</text>
+      <text class="tx" x="285" y="117" text-anchor="middle">يفتح بلا شريط متصفّح</text>
+    </svg>
+  </div>
+
+  <div class="steps" id="ios" hidden>
+    <h3>للتثبيت على آيفون / آيباد</h3>
+    <p class="why">آيفون لا يعرض زرّ تثبيت — التثبيت عنده يدويٌّ، وبعده يفتح
+    التطبيق بلا شريط متصفّح ويعمل بلا إنترنت.</p>
+    <ol>
+      <li>اضغط <b>«افتح التطبيق الآن»</b> بالأعلى — <b>وهذه الخطوة مهمة</b>،
+          فآيفون يثبّت الصفحة التي أنت فيها، ولو ثبّتّ هذه الصفحة فتحت لك
+          صفحةَ التعريف لا التطبيق.</li>
+      <li>من داخل التطبيق اضغط زرّ <b>المشاركة</b> في شريط <b>Safari</b> (أسفل الشاشة).</li>
+      <li>انزل بالقائمة واختر <b>«إضافة إلى الشاشة الرئيسية»</b> ثم <b>«إضافة»</b>.</li>
+    </ol>
+    <p class="why"><b>هل ثبّتّه قبل اليوم وفتح داخل المتصفّح؟</b> احذف الأيقونة
+    القديمة من الشاشة ثم أعِد الإضافة — آيفون يقرأ إعدادات التطبيق
+    <b>مرةً واحدة لحظةَ الإضافة</b> ولا يُحدّثها بعدها أبداً.</p>
+  </div>
+
+  <div class="steps" id="ios-other" hidden>
+    <h3>التثبيت من <span dir="ltr">Chrome</span> على آيفون</h3>
+    <p class="why">في آيفون ١٦٫٤ فأحدث يستطيع كروم وإيدج وفَيَرفُكس الإضافةَ إلى
+    الشاشة — لكن من قائمتهم هم لا من سفاري. وإن لم تجد الخيار فافتح الرابط
+    في <b>Safari</b>، فهو الطريق المضمون.</p>
+    <ol>
+      <li>زرّ <b>المشاركة</b> ← <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>
+      <li>لم تجده؟ اضغط الزرّ الأخضر بالأسفل ليفتح الرابط في سفاري.</li>
+      <li>في سفاري: المشاركة ← <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>
+    </ol>
+    <button class="cta" id="to-safari2">افتح في <span dir="ltr">Safari</span></button>
+  </div>
+
+  <div class="steps" id="ios-inapp" hidden>
+    <h3>افتح الرابط في <span dir="ltr">Safari</span> — لا من داخل واتساب</h3>
+    <p class="why">أنت تقرأ الآن داخل <b>متصفّح واتساب/فيسبوك المصغّر</b>، وهذا
+    المتصفّح <b>لا يملك خيار «إضافة إلى الشاشة الرئيسية»</b> أصلاً — مهما ضغطت
+    زرّ المشاركة لن تجده. هذا سبب أن التطبيق «لا يُثبَّت». الحلّ ثانية واحدة:</p>
+    <ol>
+      <li>اضغط الزرّ الأخضر بالأسفل <b>«افتح في سفاري»</b>.</li>
+      <li>أو: زرّ <b>⋯</b> أعلى الشاشة ← <b>«فتح في Safari»</b>.</li>
+      <li>في سفاري: زرّ المشاركة ← <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>
+    </ol>
+    <button class="cta" id="to-safari">افتح في <span dir="ltr">Safari</span></button>
+  </div>
+
+  <div class="steps" id="android" hidden>
+    <h3>للتثبيت على أندرويد</h3>
+    <ol>
+      <li>افتح هذه الصفحة في <b>Chrome</b>.</li>
+      <li>اضغط <b>⋮</b> أعلى اليمين.</li>
+      <li>اختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>
+    </ol>
+  </div>
+
+  <div class="qr" id="qr"></div>
+  <p class="link" id="url"></p>
+  <button class="cta ghost" id="copy">انسخ الرابط لمشاركته</button>
+  <p class="link"><a href="ios.html" style="color:#d4af62">لم يُثبَّت عندك؟ افحص جهازك واعرف السبب ←</a></p>
+
+  <p class="note">
+    مجاني بالكامل ومفتوح المدة — لا اشتراك ولا نسخة تجريبية ولا جمع بيانات.<br>
+    المحتوى من مصادر دعوية منشورة للعامة وحقوقه لأصحابها.
+  </p>
+</main>
+
+<script>
+/* من أضاف هذه الصفحة إلى شاشة آيفون بدل التطبيق: نُحوّله فوراً إلى التطبيق.
+   يُنفَّذ قبل أي شيء آخر حتى لا يرى صفحةَ التعريف أصلاً. وهذا يُصلح كل
+   اختصارٍ خاطئ سبق إنشاؤه — بلا أن يحذف المستخدم شيئاً. */
+(function () {
+  var standalone = window.navigator.standalone === true ||
+                   window.matchMedia('(display-mode: standalone)').matches;
+  if (standalone) location.replace('index.html');
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function () {
+  var appUrl = location.href.replace(/share\.html.*$/, 'index.html');
+  document.getElementById('open').href = appUrl;
+  document.getElementById('url').textContent = appUrl;
+
+  // رمز QR — يرسم محلياً، وإن تعذّر تحميل المكتبة يبقى الرابط النصّي كافياً
+  try {
+    if (window.QRCode) {
+      new QRCode(document.getElementById('qr'),
+                 { text: appUrl, width: 168, height: 168, correctLevel: QRCode.CorrectLevel.M });
+    } else { document.getElementById('qr').hidden = true; }
+  } catch (e) { document.getElementById('qr').hidden = true; }
+
+  // زر التثبيت الحقيقي على أندرويد/ويندوز
+  var deferred = null;
+  var btn = document.getElementById('install');
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    deferred = e;
+    btn.hidden = false;
+  });
+  btn.onclick = function () {
+    if (!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function (c) {
+      if (c.outcome === 'accepted') { btn.textContent = 'تم التثبيت ✓'; btn.disabled = true; }
+      deferred = null;
+    });
+  };
+  window.addEventListener('appinstalled', function () {
+    btn.textContent = 'تم التثبيت ✓'; btn.disabled = true; btn.hidden = false;
+  });
+
+  // إرشادات حسب الجهاز
+  var ua = navigator.userAgent;
+  var iOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
+  var iosOther = iOS && /CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser/.test(ua);
+
+  /* ⚠ **أهمّ سطر في الصفحة.** من يفتح الرابط من داخل واتساب أو فيسبوك أو
+     إنستغرام يقع في متصفّحٍ مصغّر (WKWebView) **لا وجود فيه لخيار «إضافة إلى
+     الشاشة الرئيسية»** — فيتبع الخطوات ولا يجد شيئاً فيظنّ التطبيق معطوباً.
+     وهو لا يُكشف بالـUA: واتساب ينتحل هوية سفاري بالحرف. الفرق الوحيد
+     الموثوق: `navigator.standalone` **مُعرَّف في سفاري الحقيقي** (قيمته false
+     في تبويب عادي) و**غير مُعرَّف** في أي WKWebView. */
+  var inAppUA = /FBAN|FBAV|FB_IAB|Instagram|Line\/|Twitter|LinkedInApp|Snapchat|MicroMessenger|WhatsApp|GSA\//i.test(ua);
+  var iosInApp = iOS && !iosOther && (inAppUA || typeof navigator.standalone === 'undefined');
+
+  if (!standalone) {
+    // التصريح بغياب زرّ التحميل يسبق كل شرح — هو أول ما يبحث عنه المستخدم
+    if (iOS) document.getElementById('nobtn').hidden = false;
+    if (iosInApp) document.getElementById('ios-inapp').hidden = false;
+    else if (iosOther) document.getElementById('ios-other').hidden = false;
+    else if (iOS) document.getElementById('ios').hidden = false;
+    else if (/Android/.test(ua)) document.getElementById('android').hidden = false;
+  }
+
+  /* القفزة إلى سفاري: مخطّط `x-safari-https` تقبله آبل من داخل الـWKWebView.
+     وإن رفضه المتصفّح لم يحدث شيء — فننسخ الرابط بعد ثانية حتى لا يعلق. */
+  function toSafari() {
+    var before = Date.now();
+    try { location.href = appUrl.replace(/^https:\/\//, 'x-safari-https://'); } catch (e) {}
+    setTimeout(function () {
+      if (Date.now() - before < 1400 && !document.hidden) {
+        document.getElementById('copy').click();
+        alert('نُسخ الرابط. افتح Safari والصقه في شريط العنوان.');
+      }
+    }, 1200);
+  }
+  var b1 = document.getElementById('to-safari'); if (b1) b1.onclick = toSafari;
+  var b2 = document.getElementById('to-safari2'); if (b2) b2.onclick = toSafari;
+
+  document.getElementById('copy').onclick = function () {
+    var done = function () { document.getElementById('copy').textContent = 'نُسخ الرابط ✓'; };
+    if (navigator.clipboard) navigator.clipboard.writeText(appUrl).then(done, done);
+    else { var t = document.createElement('textarea'); t.value = appUrl; document.body.appendChild(t);
+           t.select(); try { document.execCommand('copy'); } catch (e) {} t.remove(); done(); }
+  };
+
+  if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+})();
+</script>
+</body>
+</html>
